@@ -1,7 +1,7 @@
 import csv
 import CartesianPoint_class
 
-# Define the points
+# Define the points of your trajectorie
 points = [
     CartesianPoint_class.CartesianPoint(-0.05247, -0.2361, 0.36177, 1.111, 2.9, -0.107),
     CartesianPoint_class.CartesianPoint(-0.44061, -0.1536, 0.22177, 1.188, 3.029, 0.013),
@@ -13,17 +13,17 @@ points = [
     CartesianPoint_class.CartesianPoint(0.04738, -0.34733, 0.35249, 0.693, 3.001, -0.322)
 ]
 
-# Write trajectories to a CSV file
-file_name = "trajectories.csv"
+# name of your CSV file
+file_name = "Generated_trajectories.csv"
 
 with open(file_name, mode='w', newline='', encoding='utf-8') as file:
     writer = csv.writer(file)
     
-    # Write header
+    # Write header of your CSV file
     writer.writerow(["X", "Y", "Z", "w", "p", "r"])
     
-    # Generate trajectories
-    for i in range(10):
+    # Generate 5 trajectories with margin 0.001 and the index of the point in the list
+    for i in range(5):
         for idx, point in enumerate(points, start=1):
             modified_point = CartesianPoint_class.generate_point_with_margin(
                 point, 
